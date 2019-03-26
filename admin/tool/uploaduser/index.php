@@ -1179,8 +1179,14 @@ while ($linenum <= $previewrows and $fields = $cir->next()) {
     $linenum++;
     $rowcols = array();
     $rowcols['line'] = $linenum;
-    foreach($fields as $key => $field) {
-        $rowcols[$filecolumns[$key]] = s(trim($field));
+    foreach($fields as $k => $field) {
+        $key = $filecolumns[$k];
+        $value = trim($field);
+        if ($key != "email") {
+            $value = s($value);
+        }
+
+        $rowcols[$key] = $value;
     }
     $rowcols['status'] = array();
 
