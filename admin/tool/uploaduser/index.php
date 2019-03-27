@@ -1204,6 +1204,7 @@ while ($linenum <= $previewrows and $fields = $cir->next()) {
 
     if (isset($rowcols['email'])) {
         if (!validate_email($rowcols['email'])) {
+            $rowcols['email'] = s($rowcols['email']); // To prevent XSS attacks
             $rowcols['status'][] = get_string('invalidemail');
         }
 
