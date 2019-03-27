@@ -1215,9 +1215,6 @@ while ($linenum <= $previewrows and $fields = $cir->next()) {
         }
     }
 
-    if (isset($rowcols['city'])) {
-        $rowcols['city'] = $rowcols['city'];
-    }
     // Check if rowcols have custom profile field with correct data and update error state.
     $noerror = uu_check_custom_profile_data($rowcols) && $noerror;
     $rowcols['status'] = implode('<br />', $rowcols['status']);
